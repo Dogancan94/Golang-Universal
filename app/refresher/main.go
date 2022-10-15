@@ -30,8 +30,8 @@ func main() {
 	showMeSomePointer()
 
 	person := Person{
-		Firsname:    "Dogancan",
-		Lastname:    "Kinik",
+		Firsname:    "Donjovi",
+		Lastname:    "94",
 		PhoneNumber: "555 555 1212",
 	}
 	log.Println("User is:", person.Firsname, person.Lastname, person.PhoneNumber)
@@ -173,7 +173,7 @@ func createLoop() {
 		log.Println(i)
 	}
 
-	humans := []string{"Dogancan", "Erdem", "Damla", "Balki"}
+	humans := []string{"Dogancan", "Alex", "Mars", "Aristo"}
 	for _, human := range humans {
 		log.Println(human)
 	}
