@@ -8,6 +8,7 @@ import (
 	"net/http"
 	"os"
 	"path/filepath"
+	"regexp"
 	"strings"
 )
 
@@ -154,4 +155,19 @@ func (t *Tools) CreateDirectoryIfNotExist(path string) error {
 	}
 
 	return nil
+}
+
+func (t *Tools) Slugify(s string) (string, error) {
+	if s == "" {
+		return "", errors.New("empty string is not permitted")
+	}
+
+	regex := regexp.MustCompile(`[^a-z\d]+`)
+	slug := strings.Trim(regex.ReplaceAllString(strings.ToLower(s), "-"), "-")
+
+	if len(slug) == 0 {
+		return "", errors.New("after removing characters, slug is zero length")
+	}
+
+	return slug, nil
 }
